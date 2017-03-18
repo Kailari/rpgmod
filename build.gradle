@@ -1,0 +1,11 @@
+allprojects {
+	repositories {
+		mavenLocal()
+	}
+}
+
+project(":main") {
+}
+
+project(":rpgmod-api") {
+}

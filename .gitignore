@@ -1,0 +1,8 @@
+.gradle/
+.idea/
+main/.gradle/
+main/build/
+main/run/
+out/
+rpgmod-api/.gradle/
+run/

@@ -1,0 +1,8 @@
+[{
+    "modid": "rpgmod",
+    "name": "Kailari's RPG-Mod",
+    "description": "All sorts of RPG-stuff.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": ["Kailari_"]
+}]

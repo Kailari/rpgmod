@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+ext.configFile = file "../build.properties"
+configFile.withReader {
+	def prop = new Properties()
+	prop.load(it)
+	project.ext.config = new ConfigSlurper().parse prop
+}
+
+version = config.modver
+group = "rpgmod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "rpgmod"
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+
+minecraft {
+    version = config.mcver + "-" + config.forgever
+    runDir = "run"
+    mappings = config.mappings
+}
+
+dependencies {
+    compile files('../lib/annotations-java8.jar')
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir "src/java"
+		}
+		resources {
+			srcDir "src/resources"
+		}
+	}
+	api {
+		java {
+			srcDir "../rpgmod-api/src/"
+		}
+	}
+}
+
+idea.module.sourceDirs += sourceSets.api.java.srcDirs
+
+processResources {
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    // copy everything else except the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

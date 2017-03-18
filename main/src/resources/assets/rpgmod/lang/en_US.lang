@@ -1,0 +1,20 @@
+## Commands
+
+# Player attributes
+commands.pattr.usage=§a/pattr <set|show|list>
+commands.pattr.err.no_sub_command=§4You must specify a sub-command!
+commands.pattr.err.too_few_args=§4Too few arguments! Expected %s§4, got %s§4.
+commands.pattr.err.attr_not_found=§4Attribute not found!
+commands.pattr.err.player_not_found=§4Player not found!
+
+# Player attributes -> set
+commands.pattr.set.usage=§a/pattr set <attribute> <value>
+commands.pattr.set.err.number_format=§4Invalid number format!
+commands.pattr.set.result=§fSet base value of the attribute "§9%s§f"! §0[§9BASE: %s§0, §aVALUE: %s§0]
+
+# Player attributes -> show
+commands.pattr.show.usage=§a/pattr show <attribute>
+commands.pattr.show.result=§fValue of the attribute "§9%s§f": §0[§9BASE: %s§0, §aVALUE: %s§0]
+
+#Player attributes -> list
+commands.pattr.list.usage=§a/pattr list
