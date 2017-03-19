@@ -1,4 +1,4 @@
-package rpgmod.api.attributes;
+package rpgmod.api.attributes.player;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -11,7 +11,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import rpgmod.api.attributes.PlayerAttributes;
+import rpgmod.api.attributes.player.PlayerAttributes;
 
 import java.util.Arrays;
 import java.util.List;

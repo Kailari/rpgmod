@@ -1,1 +1,1 @@
-include 'main', 'rpgmod-api'
+include 'main', 'api'

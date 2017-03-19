@@ -2,7 +2,7 @@ package rpgmod.common;
 
 import net.minecraft.command.ICommand;
 import net.minecraftforge.common.MinecraftForge;
-import rpgmod.api.attributes.PlayerAttributeManager;
+import rpgmod.api.attributes.player.PlayerAttributeManager;
 import rpgmod.common.commands.CommandAttribute;
 import rpgmod.common.player.attributes.PlayerAttributeManagerImpl;
 

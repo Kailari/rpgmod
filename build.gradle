@@ -1,11 +1,16 @@
 allprojects {
-	repositories {
-		mavenLocal()
-	}
+	//repositories {
+		//mavenLocal()
+	//}
 }
 
 project(":main") {
+    apply plugin: "java"
+
+	dependencies {
+		compile project(":api")
+	}
 }
 
-project(":rpgmod-api") {
+project(":api") {
 }

@@ -42,11 +42,11 @@ sourceSets {
 			srcDir "src/resources"
 		}
 	}
-	api {
-		java {
-			srcDir "../rpgmod-api/src/"
-		}
-	}
+	//api {
+	//	java {
+	//		srcDir "../rpgmod-api/src/"
+	//	}
+	//}
 }
 
 idea.module.sourceDirs += sourceSets.api.java.srcDirs

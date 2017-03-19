@@ -3,10 +3,10 @@ package rpgmod.common.player.attributes;
 import net.minecraft.entity.SharedMonsterAttributes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import rpgmod.api.attributes.IAttributeHandler;
-import rpgmod.api.attributes.IPlayerAttribute;
-import rpgmod.api.attributes.PlayerAttributeManager;
-import rpgmod.api.attributes.PlayerAttributes;
+import rpgmod.api.attributes.player.IAttributeHandler;
+import rpgmod.api.attributes.player.IPlayerAttribute;
+import rpgmod.api.attributes.player.PlayerAttributeManager;
+import rpgmod.api.attributes.player.PlayerAttributes;
 
 import java.util.HashMap;
 

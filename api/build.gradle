@@ -19,7 +19,7 @@ configFile.withReader {
 
 version = config.modver
 group = "rpgmod.api" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "rpgmod-api"
+archivesBaseName = "api"
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 
@@ -36,7 +36,7 @@ dependencies {
 sourceSets {
 	main {
 		java {
-			srcDir "src/main"
+			srcDir "src"
 		}
 	}
 }

@@ -1,5 +1,6 @@
-package rpgmod.api.attributes;
+package rpgmod.api.attributes.player;
 
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import org.jetbrains.annotations.NotNull;
 
@@ -109,5 +110,19 @@ public enum PlayerAttributes implements IPlayerAttribute {
     public static void setBaseValue(@NotNull EntityPlayer player, @NotNull IPlayerAttribute attribute, double value) {
         IAttributeHandler handler = PlayerAttributeManager.INSTANCE.get(attribute);
         if (handler != null) handler.setBaseValue(player, value);
+    }
+
+    public static void applyModifier(@NotNull EntityPlayer player,
+                                     @NotNull IPlayerAttribute attribute,
+                                     @NotNull AttributeModifier modifier) {
+        IAttributeHandler handler = PlayerAttributeManager.INSTANCE.get(attribute);
+        if (handler != null) handler.applyModifier(player, modifier);
+    }
+
+    public static void removeModifier(@NotNull EntityPlayer player,
+                                      @NotNull IPlayerAttribute attribute,
+                                      @NotNull AttributeModifier modifier) {
+        IAttributeHandler handler = PlayerAttributeManager.INSTANCE.get(attribute);
+        if (handler != null) handler.removeModifier(player, modifier);
     }
 }
