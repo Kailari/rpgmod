@@ -2,9 +2,9 @@ package rpgmod.common;
 
 import net.minecraft.command.ICommand;
 import net.minecraftforge.common.MinecraftForge;
-import rpgmod.api.attributes.player.PlayerAttributeManager;
+import rpgmod.api.player.PlayerAttributeManager;
 import rpgmod.common.commands.CommandAttribute;
-import rpgmod.common.player.attributes.PlayerAttributeManagerImpl;
+import rpgmod.common.attributes.player.PlayerAttributeManagerImpl;
 
 import java.util.function.Consumer;
 

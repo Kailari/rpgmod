@@ -18,3 +18,19 @@ commands.pattr.show.result=§fValue of the attribute "§9%s§f": §0[§9BASE: %s
 
 #Player attributes -> list
 commands.pattr.list.usage=§a/pattr list
+
+
+
+## Player Attributes
+pattr.rpgmod.max_hp.name=Max Health
+pattr.rpgmod.movement_speed_base.name=Base Movement Speed
+pattr.rpgmod.armor.name=Armor
+pattr.rpgmod.armor_toughness.name=Armor Toughness
+pattr.rpgmod.luck.name=Luck
+pattr.rpgmod.attack_damage_base.name=Base Attack Damage
+pattr.rpgmod.attack_speed_base.name=Base Attack Speed
+pattr.rpgmod.resistance_knockback.name=Knockback Resistance
+
+
+
+## RPG Attributes

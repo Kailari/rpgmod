@@ -11,7 +11,8 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import rpgmod.api.attributes.player.PlayerAttributes;
+import rpgmod.api.player.PlayerAttributes;
+import rpgmod.common.Attributes;
 
 import java.util.Arrays;
 import java.util.List;
@@ -68,7 +69,7 @@ public class CommandAttribute extends CommandBase {
         EntityPlayer player = getPlayer(sender);
         if (player == null) return;
 
-        PlayerAttributes attribute = findAttribute(sender, attrKey);
+        Attributes.Player attribute = findAttribute(sender, attrKey);
         if (attribute == null) return;
 
         double value = PlayerAttributes.getValue(player, attribute);
@@ -81,7 +82,7 @@ public class CommandAttribute extends CommandBase {
         EntityPlayer player = getPlayer(sender);
         if (player == null) return;
 
-        PlayerAttributes attribute = findAttribute(sender, attrKey);
+        Attributes.Player attribute = findAttribute(sender, attrKey);
         if (attribute == null) return;
 
         double value;
@@ -101,7 +102,7 @@ public class CommandAttribute extends CommandBase {
     }
 
     private void executeList(@NotNull ICommandSender sender) {
-        for (PlayerAttributes attribute : PlayerAttributes.values()) {
+        for (Attributes.Player attribute : Attributes.Player.values()) {
             sender.sendMessage(new TextComponentString(attribute.getName()));
         }
     }
@@ -116,8 +117,8 @@ public class CommandAttribute extends CommandBase {
         }
     }
 
-    private PlayerAttributes findAttribute(ICommandSender sender, @NotNull String attrKey) {
-        for (PlayerAttributes attribute : PlayerAttributes.values()) {
+    private Attributes.Player findAttribute(ICommandSender sender, @NotNull String attrKey) {
+        for (Attributes.Player attribute : Attributes.Player.values()) {
             if (attribute.getName().equalsIgnoreCase(attrKey)) {
                 return attribute;
             }
@@ -138,8 +139,8 @@ public class CommandAttribute extends CommandBase {
             String subCmd = args[0];
             if (subCmd.equals("set") || subCmd.equals("show")) {
                 return getListOfStringsMatchingLastWord(args,
-                        Arrays.stream(PlayerAttributes.values())
-                                .map(PlayerAttributes::getName)
+                        Arrays.stream(Attributes.Player.values())
+                                .map(Attributes.Player::getName)
                                 .collect(Collectors.toList()));
             }
         }

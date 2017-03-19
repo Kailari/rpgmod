@@ -1,4 +1,4 @@
-package rpgmod.api.attributes.rpg;
+package rpgmod.api.player.attributes;
 
 /**
  * Defines an xp ramp

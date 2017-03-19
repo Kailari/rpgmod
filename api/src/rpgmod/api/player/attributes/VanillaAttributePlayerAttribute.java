@@ -1,4 +1,4 @@
-package rpgmod.common.player.attributes;
+package rpgmod.api.player.attributes;
 
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -6,25 +6,46 @@ import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import rpgmod.api.attributes.player.IAttributeHandler;
 
 /**
- * Attribute handler for handling attributes linked to an EntityAttribute.
+ * Attribute handler for handling player attributes linked to an Entity Attribute.
  */
-public class LinkAttributeHandler implements IAttributeHandler {
+public class VanillaAttributePlayerAttribute extends PlayerAttribute {
     private final IAttribute attribute;
-    private final boolean autoRegister;
+    private final boolean register;
 
-    public LinkAttributeHandler(@NotNull IAttribute attribute) {
-        this(attribute, false);
+    /**
+     * Constructs a new VanillaAttributePlayerAttribute instance, which does not automatically register
+     * the internal attribute.
+     *
+     * @param modid        Modid of the mod defining this attribute.
+     * @param registryName Registry name for this attribute.
+     * @param attribute    The target attribute to link to.
+     */
+    public VanillaAttributePlayerAttribute(@NotNull String modid,
+                                           @NotNull String registryName,
+                                           @NotNull IAttribute attribute) {
+        this(modid, registryName, attribute, false);
     }
 
-    public LinkAttributeHandler(@NotNull IAttribute attribute, boolean autoRegister) {
+    /**
+     * Constructs a new VanillaAttributePlayerAttribute instance.
+     *
+     * @param modid        Modid of the mod defining this attribute.
+     * @param registryName Registry name for this attribute.
+     * @param attribute    The target attribute to link to.
+     * @param register     Should the IAttribute be automatically registered if it does not exist?
+     */
+    public VanillaAttributePlayerAttribute(@NotNull String modid,
+                                           @NotNull String registryName,
+                                           @NotNull IAttribute attribute,
+                                           boolean register) {
+        super(modid, registryName);
         this.attribute = attribute;
-        this.autoRegister = autoRegister;
+        this.register = register;
     }
 
-    // region IAttributeHandler Implementation
+    // region PlayerAttribute Implementation
 
     @Override
     public double getValue(@NotNull EntityPlayer player) {
@@ -58,12 +79,16 @@ public class LinkAttributeHandler implements IAttributeHandler {
 
     // endregion
 
+    // region Helpers
+
     @Nullable
     private IAttributeInstance getInstance(@NotNull EntityPlayer player) {
         IAttributeInstance instance = player.getEntityAttribute(attribute);
-        if (instance == null && autoRegister) {
+        if (instance == null && register) {
             instance = player.getAttributeMap().registerAttribute(attribute);
         }
         return instance;
     }
+
+    // endregion Helpers
 }
